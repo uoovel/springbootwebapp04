@@ -46,17 +46,19 @@ public class SpringBootWebAppApplication {
             System.out.println("Inserted a new row.");
         }
         
-        sql = "Create table product (ID int primary key, name varchar(50))"; 
+        sql = "Create table product ("
+        		+ "ID int NOT NULL AUTO_INCREMENT, "
+        		+ "name varchar(50), PRIMARY KEY(ID))"; 
         statement.execute(sql);
         System.out.println("Created table product.");
-        
+        /*
         sql = "Insert into product (ID, name) values (1, 'Rocker')";
         
         rows = statement.executeUpdate(sql);
          
         if (rows > 0) {
             System.out.println("Inserted a new row into product.");
-        }
+        }*/
  
         connection.close();
 		
