@@ -1,4 +1,4 @@
-package net.codeurmas.SpringBootWebApp;
+package net.codeurmas.SpringBootWebApp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,17 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Product {
+public class Orders {
 	private Long id;
-	private String name;
-	protected Product() {
+	private String date;
+	protected Orders() {
 		
 	}
-	public String getName() {
-		return name;
+	public String getDate() {
+		return date;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public void setId(Long id) {
 		this.id = id;

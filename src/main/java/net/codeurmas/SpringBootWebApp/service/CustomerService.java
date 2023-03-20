@@ -1,4 +1,4 @@
-package net.codeurmas.SpringBootWebApp;
+package net.codeurmas.SpringBootWebApp.service;
 
 import java.util.List;
 
@@ -7,23 +7,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import net.codeurmas.SpringBootWebApp.model.Customer;
 
 @Service
 @Transactional
-public class ProductService {
+public class CustomerService {
 	   
 	   @Autowired
-	    private ProductRepository repo;
+	    private CustomerRepository repo;
 	     
-	    public List<Product> listAll() {
+	    public List<Customer> listAll() {
 	        return repo.findAll();
 	    }
 	     
-	    public void save(Product product) {
-	        repo.save(product);
+	    public void save(Customer customer) {
+	        repo.save(customer);
 	    }
 	     
-	    public Product get(long id) {
+	    public Customer get(long id) {
 	        return repo.findById(id).get();
 	    }
 	     

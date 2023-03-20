@@ -18,6 +18,7 @@ public class SpringBootWebAppApplication {
 		SpringApplication.run(SpringBootWebAppApplication.class, args);
 		
 		//create db
+		/*
 		String jdbcURL = "jdbc:h2:~/test";
         String username = "sa";
         String password = "1234";
@@ -45,12 +46,15 @@ public class SpringBootWebAppApplication {
         if (rows > 0) {
             System.out.println("Inserted a new row.");
         }
-        
+        */
+        /*
         sql = "Create table product ("
         		+ "ID int NOT NULL AUTO_INCREMENT, "
         		+ "name varchar(50), PRIMARY KEY(ID))"; 
         statement.execute(sql);
         System.out.println("Created table product.");
+        */
+        
         /*
         sql = "Insert into product (ID, name) values (1, 'Rocker')";
         
@@ -60,8 +64,8 @@ public class SpringBootWebAppApplication {
             System.out.println("Inserted a new row into product.");
         }*/
  
-        connection.close();
-		
+        //connection.close();
+		System.out.println("N2 embedded DB created, WebApp is running");
 	}
 
 }

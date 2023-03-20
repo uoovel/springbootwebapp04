@@ -10,23 +10,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import net.codeurmas.model.Contact;
+import net.codeurmas.SpringBootWebApp.model.Customer;
+import net.codeurmas.SpringBootWebApp.model.Orders;
+import net.codeurmas.SpringBootWebApp.model.Product;
+import net.codeurmas.SpringBootWebApp.service.CustomerService;
+import net.codeurmas.SpringBootWebApp.service.OrderService;
+import net.codeurmas.SpringBootWebApp.service.ProductService;
 
-import net.codeurmas.service.ContactBusiness;
 
 @Controller
 public class AppController {
-	 @RequestMapping("/list_contact")
-	    public String listContact(Model model) {
-	         
-	        ContactBusiness business = new ContactBusiness();
-	        List<Contact> contactList = business.getContactList();
-	         
-	        model.addAttribute("contacts", contactList);       
-	         
-	        return "contact";
-	    }
-	 
+
+	 //product
 	 @Autowired
 	 private ProductService service;
 	 
@@ -56,6 +51,41 @@ public class AppController {
 	 @RequestMapping(value = "/save", method = RequestMethod.POST)
 	 public String saveProduct(@ModelAttribute("product") Product product) {
 	     service.save(product);
+	      
+	     return "redirect:/";
+	 }
+	 //Order
+	 @Autowired
+	 private OrderService orderService;
+	
+	 @RequestMapping("/list_order")
+	 public String listOrder(Model model) {
+	         
+		 List<Orders> listOrders = orderService.listAll();
+		 model.addAttribute("listOrders", listOrders);    
+	         
+	     return "order";
+	 }
+	 @Autowired
+	 private CustomerService customerService;
+	 @RequestMapping("/list_customer")
+	 public String listCustomer(Model model) {
+	         
+		 List<Customer> listCustomers = customerService.listAll();
+		 model.addAttribute("listCustomers", listCustomers);    
+	         
+	     return "customer";
+	 }
+	 @RequestMapping("/newcustomer")
+	 public String showNewCustomerPage(Model model) {
+	     Customer customer = new Customer();
+	     model.addAttribute("customer", customer);
+	      
+	     return "new_customer";
+	 }
+	 @RequestMapping(value = "/savecustomer", method = RequestMethod.POST)
+	 public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+	     customerService.save(customer);
 	      
 	     return "redirect:/";
 	 }
