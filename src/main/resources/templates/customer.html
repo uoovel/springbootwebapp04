@@ -20,13 +20,13 @@
         </thead>
         <tbody>
             <tr th:each="customer : ${listCustomers}">
-                <td th:text="${customer.id}">Product ID</td>
+                <td th:text="${customer.id}">Customer ID</td>
                 <td th:text="${customer.fullname}">Full Name</td>
                 
                 <td>
-                    <a th:href="@{'/edit/' + ${customer.id}}">Edit</a>
+                    <a th:href="@{'/editcustomer/' + ${customer.id}}">Edit</a>
                     &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/delete/' + ${customer.id}}">Delete</a>
+                    <a th:href="@{'/deletecustomer/' + ${customer.id}}">Delete</a>
                 </td>
             </tr>
         </tbody>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Order</title>
+</head>
+<body>
+    <div align="center">
+        <div th:if="${order.id == null}"><h1>Create New Order</h1></div>
+        <div th:unless="${order.id == null}"><h1>Edit Order</h1></div>
+        <br />
+        <form action="#" th:action="@{/saveorder}" th:object="${order}"
+            method="post">
+            <input type="hidden" th:field="*{id}" th:value="${order.id}" />
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Order Date:</td>
+                    <td><input type="text" th:field="*{date}" /></td>
+                </tr>
+                <tr>
+                    <td>Customer:</td>
+                    <td>
+                    	<select th:field="*{customer}">
+                    		<th:block th:each="cust: ${listCustomers}">
+                    		<option th:text="${cust.fullname}" th:value="${cust.id}" />
+                    		</th:block>
+                    	</select>
+                    </td>
+                </tr>
+                                        
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

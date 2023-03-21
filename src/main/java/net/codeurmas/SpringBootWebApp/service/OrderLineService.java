@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.codeurmas.SpringBootWebApp.model.Orders;
+import net.codeurmas.SpringBootWebApp.model.OrderLine;
 
 @Service
 @Transactional
-public class OrderService {
+public class OrderLineService {
 	   @Autowired
-	    private OrderRepository repo;
+	    private OrderLineRepository repo;
 	     
-	    public List<Orders> listAll() {
+	    public List<OrderLine> listAll() {
 	        return repo.findAll();
 	    }
 	     
-	    public void save(Orders order) {
-	        repo.save(order);
+	    public void save(OrderLine orderLine) {
+	        repo.save(orderLine);
 	    }
 	     
-	    public Orders get(long id) {
+	    public OrderLine get(long id) {
 	        return repo.findById(id).get();
 	    }
 	     

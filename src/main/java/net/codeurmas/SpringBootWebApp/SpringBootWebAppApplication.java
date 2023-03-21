@@ -3,10 +3,10 @@
 //https://ozk.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-spring-mvc-spring-data-jpa-thymeleaf-hibernate-mysql
 package net.codeurmas.SpringBootWebApp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
+//import java.sql.Statement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootWebAppApplication {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args){
 		SpringApplication.run(SpringBootWebAppApplication.class, args);
 		
 		//create db

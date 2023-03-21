@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New OrderLine</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Create New OrderLine</h1>
+        <br />
+        <form action="#" th:action="@{/saveorderline}" th:object="${orderLine}"
+            method="post">
+            
+            <table border="0" cellpadding="10">
+           
+                <tr>
+                    <td>Order:</td>
+                    <td>
+                    	<select th:field="*{order}">
+                    		
+                    		<option th:text="${orderLine.order.id}" th:value="${orderLine.order.id}" />
+                    		
+                    	</select>
+                    </td>
+                    <td>Product:</td>
+                    <td>
+                    	<select th:field="*{product}">
+                    		<th:block th:each="prod: ${listProducts}">
+                    		<option th:text="${prod.name}" th:value="${prod.id}" />
+                    		</th:block>
+                    	</select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>Quantity:</td>
+                    <td><input type="text" th:field="*{quantity}" /></td>
+                </tr>
+                                        
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

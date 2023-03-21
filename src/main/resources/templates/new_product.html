@@ -7,11 +7,12 @@
 </head>
 <body>
     <div align="center">
-        <h1>Create New Product</h1>
+        <div th:if="${product.id == null}"><h1>Create New Product</h1></div>
+        <div th:unless="${product.id == null}"><h1>Edit Product</h1></div>
         <br />
         <form action="#" th:action="@{/save}" th:object="${product}"
             method="post">
- 
+            <input type="hidden" th:field="*{id}" th:value="${product.id}" />
             <table border="0" cellpadding="10">
                 <tr>
                     <td>Product Name:</td>
