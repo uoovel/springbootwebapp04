@@ -3,6 +3,7 @@ package net.codeurmas.SpringBootWebApp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,11 +26,11 @@ public class OrderController {
 	 private CustomerService customerService;
 	
 	 @RequestMapping("/list_order")
-	 public String listOrder(Model model) {
+	 public String listOrder(Model model, @Param("keyword") String keyword) {
 	         
-		 List<Orders> listOrders = orderService.listAll();
+		 List<Orders> listOrders = orderService.listAll(keyword);
 		 model.addAttribute("listOrders", listOrders);    
-	         
+		 model.addAttribute("keyword", keyword);    
 	     return "order";
 	 }
 	 @RequestMapping("/neworder")

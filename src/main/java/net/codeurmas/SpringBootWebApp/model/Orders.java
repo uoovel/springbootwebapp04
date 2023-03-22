@@ -20,6 +20,8 @@ public class Orders {
 	@Column
 	private String date;
 	
+	
+	
 	@OneToMany(mappedBy = "order")
 	private List<OrderLine> listOrderLines = new ArrayList<>();
 	
