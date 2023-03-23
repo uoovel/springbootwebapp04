@@ -3,6 +3,7 @@ package net.codeurmas.SpringBootWebApp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +23,25 @@ import net.codeurmas.SpringBootWebApp.service.ProductService;
 public class AppController {
 
 	
+	@Autowired
+	 private OrderService orderService;
 	 
+	 
+	
+	 @RequestMapping("/")
+	 public String listOrder(Model model, @Param("keyword") String keyword) {
+		 System.out.println("OrdersController>listorder>100"); 
+		 //Date dkeyword = null;
+		 //if( keyword != null) {
+		 //	 dkeyword = java.sql.Date.valueOf(keyword);
+		 //}		 
+		 List<Orders> listOrders = orderService.listAll(keyword);
+		 System.out.println("OrdersController>listorder>200");
+		 model.addAttribute("listOrders", listOrders); 
+		 System.out.println("OrdersController>listorder>300");
+		 //search = new Search();
+		 model.addAttribute("keyword", keyword);    
+	     return "frontpage";
+	 }	 
 	 
 }

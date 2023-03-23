@@ -16,7 +16,7 @@
     <a href="/neworder">Create New Order</a>
     <br/><br/>
     
-    <form th:action="@{/list_order}">
+    <form th:action="@{/list_order}" >
     	Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     	&nbsp;
     	<input type="submit" value="Search" />
@@ -36,7 +36,7 @@
         <tbody>
             <tr th:each="order : ${listOrders}">
                 <td th:text="${order.id}">Order ID</td>
-                <td th:text="${order.date}">Date</td>
+                <td th:text="${order.datestring}">Date</td>
                 <td th:text="${order.customer.fullname}">Customer</td>
                 
                 <td>

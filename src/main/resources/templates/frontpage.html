@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>My Contacts - Spring Boot Web Application Example</title>
+<link rel="stylesheet" type="text/css" href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<script type="text/javascript">
+	function clearSearch(){
+		window.location = "[[@{/}]]"
+	}
+</script>
+</head>
+<body>
+    <div align="center">
+	    <a href="/list_customer">Customers</a>    
+	    <a href="/list_product">Products</a>   
+	    <!-- <a href="/list_order">Orders</a>    
+	    <a href="/list_orderline">OrderLines</a> -->
+    </div>
+    
+	<div align="center">
+	    <h1>Order List</h1>
+	    <a href="/neworder">Create New Order</a>
+	    <br/><br/>
+	    
+	    
+	    
+	    <table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>Order ID</th>
+	                
+	                <th> Date "  " Filter:
+	                <form th:action="@{/}" >
+				    	<input type="date" name="keyword" id="keyword" size="10" th:value="${keyword}" required />
+				    	<br>
+				    	<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+				    	&nbsp;
+				    	<input type="submit" value="Search" />	
+				    </form>  
+	                </th>
+	                
+	                <th>Customer</th>
+	                <th>OrderLine</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="order : ${listOrders}">
+	                <td th:text="${order.id}">Order ID</td>
+	                <td th:text="${order.datestring}">Date</td>
+	                <td th:text="${order.customer.fullname}">Customer</td>
+	                
+	                <td>
+	                    <a th:href="@{'/neworderline/' + ${order.id}}">New</a>
+	                	<table>
+	                		<tr th:each="ordline: ${order.listOrderLines}">
+	                	    <td th:text="${ordline.product.name}">Product</td>
+	                        <td th:text="${ordline.quantity}">Quantity</td>
+	                		</tr>
+	                	</table>  
+	                </td>
+	                
+	                <td>
+	                    <a th:href="@{'/editorder/' + ${order.id}}">Edit</a>
+	                    &nbsp;&nbsp;&nbsp;
+	                    <a th:href="@{'/deleteorder/' + ${order.id}}">Delete</a>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</div>     
+    
+    
+    
+    
+</body>
+</html>
