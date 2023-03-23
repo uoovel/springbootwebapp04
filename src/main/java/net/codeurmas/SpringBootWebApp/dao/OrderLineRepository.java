@@ -1,4 +1,4 @@
-package net.codeurmas.SpringBootWebApp.service;
+package net.codeurmas.SpringBootWebApp.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

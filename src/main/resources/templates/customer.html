@@ -15,13 +15,18 @@
             <tr>
                 <th>Customer ID</th>
                 <th>Full Name</th>
-              
+                <th>Registration Code</th>
+                <th>Email</th>
+                <th>Telephone</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="customer : ${listCustomers}">
                 <td th:text="${customer.id}">Customer ID</td>
                 <td th:text="${customer.fullname}">Full Name</td>
+                <td th:text="${customer.regCode}">Registration code</td>
+                <td th:text="${customer.email}">Email</td>
+                <td th:text="${customer.phone}">Phone</td>
                 
                 <td>
                     <a th:href="@{'/editcustomer/' + ${customer.id}}">Edit</a>

@@ -58,21 +58,27 @@ public class OrderLineController {
 	    
 	     return "new_orderline";
 	 }
-	 /*
-	 @RequestMapping("/editorder/{id}")
-	 public String showEditOrderForm(@PathVariable(name = "id") int id, Model model) {
-	     Orders order = orderService.get(id);
-	     model.addAttribute("order", order); 
-	     List<Customer> listCustomers = customerService.listAll();
-	     model.addAttribute("listCustomers", listCustomers);
-	     return "new_order";       
-	 }*/
+	 
+	 @RequestMapping("/editline/{id}")
+	 public String showEditOrderLineForm(@PathVariable(name = "id") int id, Model model) {
+	     OrderLine orderLine = orderLineService.get(id);
+	     model.addAttribute("orderLine", orderLine); 
+	     List<Product> listProducts = productService.listAll();
+	     model.addAttribute("listProducts", listProducts);
+	     return "new_orderline";       
+	 }
 	 
 	 @RequestMapping(value = "/saveorderline", method = RequestMethod.POST)
 	 public String saveOrderLine(@ModelAttribute("orderLine") OrderLine orderLine) {
 	     orderLineService.save(orderLine);
 	      
 	     return "redirect:/";
+	 }
+	 
+	 @RequestMapping("/deleteline/{id}")
+	 public String deleteOrderLine(@PathVariable(name = "id") int id) {
+	     orderLineService.delete(id);
+	     return "redirect:/";       
 	 }
 	 
 

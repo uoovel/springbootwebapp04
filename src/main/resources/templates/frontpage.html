@@ -15,8 +15,7 @@
     <div align="center">
 	    <a href="/list_customer">Customers</a>    
 	    <a href="/list_product">Products</a>   
-	    <!-- <a href="/list_order">Orders</a>    
-	    <a href="/list_orderline">OrderLines</a> -->
+	    
     </div>
     
 	<div align="center">
@@ -29,7 +28,7 @@
 	    <table border="1" cellpadding="10">
 	        <thead>
 	            <tr>
-	                <th>Order ID</th>
+	                <!--  <th>Order ID</th>-->
 	                
 	                <th> Date "  " Filter:
 	                <form th:action="@{/}" >
@@ -42,12 +41,12 @@
 	                </th>
 	                
 	                <th>Customer</th>
-	                <th>OrderLine</th>
+	                <th>Ordered products</th>
 	            </tr>
 	        </thead>
 	        <tbody>
 	            <tr th:each="order : ${listOrders}">
-	                <td th:text="${order.id}">Order ID</td>
+	                <!-- <td th:text="${order.id}">Order ID</td> -->
 	                <td th:text="${order.datestring}">Date</td>
 	                <td th:text="${order.customer.fullname}">Customer</td>
 	                
@@ -57,6 +56,11 @@
 	                		<tr th:each="ordline: ${order.listOrderLines}">
 	                	    <td th:text="${ordline.product.name}">Product</td>
 	                        <td th:text="${ordline.quantity}">Quantity</td>
+	                		<td>
+			                    <a th:href="@{'/editline/' + ${ordline.id}}">Edit</a>
+			                    &nbsp;&nbsp;&nbsp;
+			                    <a th:href="@{'/deleteline/' + ${ordline.id}}">Delete</a>
+			                </td>
 	                		</tr>
 	                	</table>  
 	                </td>

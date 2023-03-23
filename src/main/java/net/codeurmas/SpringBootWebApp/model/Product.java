@@ -11,9 +11,28 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column
 	private String name;
 	
+	@Column
+	private String skuCode;
+	
+	@Column
+	private double unitPrice;
+	
+	public String getSkuCode() {
+		return skuCode;
+	}
+	public void setSkuCode(String skuCode) {
+		this.skuCode = skuCode;
+	}
+	public double getUnitPrice() {
+		return unitPrice;
+	}
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
 	public Product() {
 		
 	}
@@ -26,8 +45,7 @@ public class Product {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
     public Long getId() {
 		return id;
 	}

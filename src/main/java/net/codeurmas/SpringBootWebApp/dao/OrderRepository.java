@@ -1,9 +1,5 @@
-//codejava.net/frameworks/spring-boot/spring-data-jpa-filter-search-examples
+package net.codeurmas.SpringBootWebApp.dao;
 
-package net.codeurmas.SpringBootWebApp.service;
-
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,3 +12,4 @@ public interface OrderRepository extends JpaRepository<Orders, Long>{
 	@Query("SELECT o FROM Orders o WHERE o.datestring LIKE %?1%")
 	public List<Orders> search(String keyword);
 }
+

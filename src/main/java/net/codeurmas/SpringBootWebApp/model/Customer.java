@@ -13,6 +13,32 @@ public class Customer {
 	private Long id;
 	@Column
 	private String fullname;
+	@Column
+	private String regCode;
+	@Column
+	private String email;
+	@Column
+	private String phone;
+	
+	
+	public String getRegCode() {
+		return regCode;
+	}
+	public void setRegCode(String regCode) {
+		this.regCode = regCode;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public Customer() {
 		
 	}

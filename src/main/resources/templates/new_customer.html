@@ -16,10 +16,21 @@
  
             <table border="0" cellpadding="10">
                 <tr>
-                    <td>Customer Full Name:</td>
+                    <td>Full Name:</td>
                     <td><input type="text" th:field="*{fullname}" /></td>
                 </tr>
-                                        
+                <tr>
+                    <td>Registration Code:</td>
+                    <td><input type="text" th:field="*{regCode}" /></td>
+                </tr>  
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" th:field="*{phone}" /></td>
+                </tr>                      
                 <tr>
                     <td></td>
                     <td colspan="2"><button type="submit">Save</button> </td>

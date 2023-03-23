@@ -14,7 +14,7 @@ public class OrderLine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	private String quantity;
+	private Integer quantity;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_id")
@@ -42,10 +42,10 @@ public class OrderLine {
 		this.order = order;
 	}
 	
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	public void setId(Long id) {

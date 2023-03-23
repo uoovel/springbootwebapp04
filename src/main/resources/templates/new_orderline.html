@@ -7,11 +7,12 @@
 </head>
 <body>
     <div align="center">
-        <h1>Create New OrderLine</h1>
+        <div th:if="${orderLine.id == null}"><h1>Create New OrderLine</h1></div>
+        <div th:unless="${orderLine.id == null}"><h1>Edit OrderLine</h1></div>
         <br />
         <form action="#" th:action="@{/saveorderline}" th:object="${orderLine}"
             method="post">
-            
+            <input type="hidden" th:field="*{id}" th:value="${orderLine.id}" />
             <table border="0" cellpadding="10">
            
                 <tr>
@@ -35,7 +36,7 @@
                 </tr>
                 <tr>
                     <td>Quantity:</td>
-                    <td><input type="text" th:field="*{quantity}" /></td>
+                    <td><input th:field="*{quantity}" /></td>
                 </tr>
                                         
                 <tr>

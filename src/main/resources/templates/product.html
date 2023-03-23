@@ -15,14 +15,16 @@
             <tr>
                 <th>Product ID</th>
                 <th>Name</th>
-              
+                <th>Unit Price</th>
+                <th>skuCode</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="product : ${listProducts}">
                 <td th:text="${product.id}">Product ID</td>
                 <td th:text="${product.name}">Name</td>
-                
+                <td th:text="${product.unitPrice}">Unit Price</td>
+                <td th:text="${product.skuCode}">skuCode</td>
                 <td>
                     <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
                     &nbsp;&nbsp;&nbsp;
