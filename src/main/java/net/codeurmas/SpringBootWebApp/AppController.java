@@ -23,24 +23,30 @@ import net.codeurmas.SpringBootWebApp.service.ProductService;
 public class AppController {
 
 	
-	@Autowired
+	 @Autowired
 	 private OrderService orderService;
 	 
 	 
 	
 	 @RequestMapping("/")
-	 public String listOrder(Model model, @Param("keyword") String keyword) {
-		 System.out.println("OrdersController>listorder>100"); 
+	 public String listOrder(Model model,
+			 @Param("keyword") String keyword,
+			 @Param("keyCustomer") String keyCustomer,
+			 @Param("keyProduct") String keyProduct) {
+		 //System.out.println("OrdersController>listorder>100"); 
 		 //Date dkeyword = null;
 		 //if( keyword != null) {
 		 //	 dkeyword = java.sql.Date.valueOf(keyword);
-		 //}		 
-		 List<Orders> listOrders = orderService.listAll(keyword);
-		 System.out.println("OrdersController>listorder>200");
+		 //}
+		 //String keyCustomer = null;
+		 List<Orders> listOrders = orderService.listAll(keyword, keyCustomer, keyProduct);
+		 //System.out.println("OrdersController>listorder>200");
 		 model.addAttribute("listOrders", listOrders); 
-		 System.out.println("OrdersController>listorder>300");
+		 //System.out.println("OrdersController>listorder>300");
 		 //search = new Search();
-		 model.addAttribute("keyword", keyword);    
+		 model.addAttribute("keyword", keyword); 
+		 model.addAttribute("keyCustomer", keyCustomer);
+		 model.addAttribute("keyProduct", keyProduct);
 	     return "frontpage";
 	 }	 
 	 

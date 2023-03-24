@@ -40,8 +40,25 @@
 				    </form>  
 	                </th>
 	                
-	                <th>Customer</th>
-	                <th>Ordered products</th>
+	                <th>Customer
+	                <form th:action="@{/}" >
+				    	<input type="text" name="keyCustomer" id="keyCustomer" size="10" th:value="${keyCustomer}" required />
+				    	<br>
+				    	<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+				    	&nbsp;
+				    	<input type="submit" value="Search" />	
+				    </form>
+	                
+	                </th>
+	                <th>Ordered products
+		                <form th:action="@{/}" >
+					    	<input type="text" name="keyProduct" id="keyProduct" size="10" th:value="${keyProduct}" required />
+					    	<br>
+					    	<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+					    	&nbsp;
+					    	<input type="submit" value="Search" />	
+					    </form>	                
+	                </th>
 	            </tr>
 	        </thead>
 	        <tbody>

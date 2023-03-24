@@ -26,22 +26,24 @@ public class OrderController {
 	 private OrderService orderService;
 	 
 	 
-	
+	 /*
 	 @RequestMapping("/list_order")
-	 public String listOrder(Model model, @Param("keyword") String keyword) {
-		 System.out.println("OrdersController>listorder>100"); 
+	 public String listOrder(Model model,
+			 @Param("keyword") String keyword,
+			 @Param("keyCustomer") String keyCustomer) {
+		 //System.out.println("OrdersController>listorder>100"); 
 		 //Date dkeyword = null;
 		 //if( keyword != null) {
 		 //	 dkeyword = java.sql.Date.valueOf(keyword);
 		 //}		 
-		 List<Orders> listOrders = orderService.listAll(keyword);
-		 System.out.println("OrdersController>listorder>200");
+		 List<Orders> listOrders = orderService.listAll(keyword, keyCustomer);
+		 //System.out.println("OrdersController>listorder>200");
 		 model.addAttribute("listOrders", listOrders); 
-		 System.out.println("OrdersController>listorder>300");
+		 //System.out.println("OrdersController>listorder>300");
 		 //search = new Search();
 		 model.addAttribute("keyword", keyword);    
 	     return "order";
-	 }
+	 }*/
 	 
 	 @Autowired
 	 private CustomerService customerService;
