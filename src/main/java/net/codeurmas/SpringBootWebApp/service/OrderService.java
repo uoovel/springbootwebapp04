@@ -76,21 +76,19 @@ public class OrderService {
 	    		}
 	    		List<OrderLine> localOrderLineList = new ArrayList<>();
 	    		for(Orders order : ordersNulledList) {
-	    			System.out.println("OrderService100>order.getID():" + order.getId());
+	    			//System.out.println("OrderService100>order.getID():" + order.getId());
 	    			for (OrderLine ordLine : selOrderLineList) {
-	    			Long orderId = ordLine.getOrder().getId();
-	    			
+	    			Long orderId = ordLine.getOrder().getId();	    			
 	    				if(orderId == order.getId()) {
-	    					System.out.println("OrderService200>Product:" + ordLine.getProduct().getName());
+	    					//System.out.println("OrderService200>Product:" + ordLine.getProduct().getName());
 	    					localOrderLineList.add(ordLine);
-	    					
 	    				}
 	    				
 	    				
 	    			}
 	    			if(!localOrderLineList.isEmpty()) {
 	    				for(OrderLine ordLine : localOrderLineList) {
-	    					System.out.println("OrderService>300: " + ordLine.getProduct().getName());
+	    					//System.out.println("OrderService>300: " + ordLine.getProduct().getName());
 	    				}
 	    				Orders orderSelect = new Orders();
 	    				orderSelect.setListOrderLines(localOrderLineList);

@@ -1,6 +1,7 @@
 //https://www.codejava.net/frameworks/spring-boot/how-to-create-a-spring-boot-web-application-spring-mvc-with-jsp-thymeleaf
 //https://ozk.codejava.net/java-se/jdbc/connect-to-h2-database-examples
 //https://ozk.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-spring-mvc-spring-data-jpa-thymeleaf-hibernate-mysql
+//docs.liquibase.com/tools-integrations/spring-boot/using-springboot-with-maven.html
 package net.codeurmas.SpringBootWebApp;
 
 //import java.sql.Connection;
