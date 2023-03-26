@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
-<title>Create New Customer</title>
+	<meta charset="utf-8" />
+	<title>Create New Customer</title>
+	<link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
 </head>
 <body>
     <div align="center">
@@ -17,7 +18,11 @@
             <table border="0" cellpadding="10">
                 <tr>
                     <td>Full Name:</td>
-                    <td><input type="text" th:field="*{fullname}" /></td>
+                    <td><input type="text" th:field="*{fullname}" />
+                    	<p th:if="${#fields.hasErrors('fullname')}" 
+                    	th:errorclass="error" th:errors="*{fullname}">
+                    	Check Name</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Registration Code:</td>

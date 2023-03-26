@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jakarta.validation.Valid;
 import net.codeurmas.SpringBootWebApp.model.Product;
 import net.codeurmas.SpringBootWebApp.service.ProductService;
 
@@ -52,8 +54,14 @@ public class ProductController {
 	 }
 	 
 	 @RequestMapping(value = "/save", method = RequestMethod.POST)
-	 public String saveProduct(@ModelAttribute("product") Product product) {
-	     service.save(product);
+	 public String saveProduct(@Valid @ModelAttribute("product") Product product,
+			 BindingResult result) {
+		 
+	     if(result.hasErrors()) {
+	    	 return "new_product";
+	     }
+		 
+		 service.save(product);
 	      
 	     return "redirect:/";
 	 }

@@ -31,5 +31,10 @@ public class CustomerService {
 	    public void delete(long id) {
 	        repo.deleteById(id);
 	    }
+
+		public Customer getCustomerByName(String testCustomerName) {
+			// TODO Auto-generated method stub
+			return repo.getByName(testCustomerName);
+		}
 	    
 }

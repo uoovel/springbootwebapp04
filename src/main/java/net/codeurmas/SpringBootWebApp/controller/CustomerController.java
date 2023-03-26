@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jakarta.validation.Valid;
 import net.codeurmas.SpringBootWebApp.model.Customer;
 import net.codeurmas.SpringBootWebApp.model.Product;
 import net.codeurmas.SpringBootWebApp.service.CustomerService;
@@ -36,8 +38,12 @@ public class CustomerController {
 	     return "new_customer";
 	 }
 	 @RequestMapping(value = "/savecustomer", method = RequestMethod.POST)
-	 public String saveCustomer(@ModelAttribute("customer") Customer customer) {
-	     customerService.save(customer);
+	 public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
+	     if(result.hasErrors()) {
+	    	 return "new_customer";
+	     }
+		 
+		 customerService.save(customer);
 	      
 	     return "redirect:/";
 	 }

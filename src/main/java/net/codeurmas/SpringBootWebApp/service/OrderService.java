@@ -118,4 +118,9 @@ public class OrderService {
 	    public void delete(long id) {
 	        repo.deleteById(id);
 	    }
+
+		public Orders getOrderByOrderDate(String randDate) {
+			// TODO Auto-generated method stub
+			return repo.getByDate(randDate);
+		}
 }

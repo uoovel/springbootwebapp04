@@ -12,5 +12,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	
 	@Query("SELECT c FROM Customer c WHERE c.fullname LIKE %?1%")
 	public List<Customer> search(String keyCustomer);
+
+	@Query("SELECT c FROM Customer c WHERE c.fullname LIKE %?1%")
+	public Customer getByName(String testCustomerName);
 	
 }

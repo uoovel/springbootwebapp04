@@ -1,5 +1,7 @@
 package net.codeurmas.SpringBootWebApp.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
+	@Length(min=1, max=100, message="{Check name}")
 	private String fullname;
 	@Column
 	private String regCode;

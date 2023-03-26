@@ -3,7 +3,8 @@
     xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
-<title>Create New Product</title>
+	<title>Create New Product</title>
+	<link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
 </head>
 <body>
     <div align="center">
@@ -16,7 +17,11 @@
             <table border="0" cellpadding="10">
                 <tr>
                     <td>Product Name:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
+                    <td><input type="text" th:field="*{name}" />
+                    <p th:if="${#fields.hasErrors('name')}" 
+                    	th:errorclass="error" th:errors="*{name}">
+                    	Check Name</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Unit Price:</td>
